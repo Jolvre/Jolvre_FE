@@ -1,0 +1,104 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .Banner {
+    width: 100vw;
+    height: 400px;
+    background-color: bisque;
+  }
+
+  .select-dropdown {
+    height: 40px;
+    width: 800px;
+    position: absolute;
+    top: 120px;
+    background-color: transparent;
+    border: none;
+    font-size: 0.8rem;
+    display: flex;
+    padding-left: 5px;
+    div {
+      float: left;
+      margin-left: 5px;
+      margin-right: 2px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    .select-item {
+      margin-top: 0.25rem;
+      &.selected {
+        font-weight: bold;
+        color: #0174df;
+      }
+      &:hover {
+        font-weight: bold;
+        color: #0174df;
+      }
+    }
+  }
+  .TxList {
+    z-index: 10;
+    width: 800px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    .Filter {
+      height: 35px;
+      width: 100px;
+      background-color: white;
+      border-radius: 8px;
+      border: 1px solid #eaeaea;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      .Category {
+        flex: 1;
+      }
+      svg {
+        align-items: right;
+        font-size: 1.3rem;
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.AboutArt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-items: center;
+  .SiteName {
+    width: 95%;
+  }
+
+  .Bar {
+    width: 97%;
+    background: black;
+    height: 2px;
+    margin-bottom: 40px;
+  }
+  .Picture {
+    background-color: #0174df;
+    width: 600px;
+    img {
+      width: 550px;
+    }
+    float: left;
+  }
+  .About {
+    background-color: aquamarine;
+    width: 400px;
+    height: 400px;
+  }
+}
