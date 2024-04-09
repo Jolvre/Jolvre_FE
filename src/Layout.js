@@ -12,7 +12,7 @@ const Layout = () => {
         style={{
           paddingTop: "20px",
           width: "100vw",
-          height: "100vh",
+          minHeight: "100vh",
           background: "#610b0b",
         }}
       >

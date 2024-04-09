@@ -1,6 +1,9 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import instagram from "../assets/icon_instagram.png";
+import facebook from "../assets/icon_facebook.png";
+import youtube from "../assets/icon_youtube.png";
 
 const Footer = () => {
   return (
@@ -23,21 +26,21 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="icon_instagram.png" />
+              <img src={instagram} />
             </a>
             <a
               href="https://www.facebook.com/UniversityOfSeoul/?locale=ko_KR"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="icon_facebook.png" />
+              <img src={facebook} />
             </a>
             <a
               href="https://www.youtube.com/@universityofseoul"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="icon_youtube.png" />
+              <img src={youtube} />
             </a>
           </div>
         </div>

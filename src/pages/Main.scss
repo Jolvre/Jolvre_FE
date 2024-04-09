@@ -42,12 +42,13 @@
   }
   .TxList {
     z-index: 10;
-    width: 800px;
-    padding: 0;
-    list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 5px;
+    justify-items: center;
+    row-gap: 30px;
+    width: 80vw;
+    padding: 0;
+    list-style: none;
     .Filter {
       height: 35px;
       width: 100px;
@@ -70,35 +71,5 @@
         cursor: pointer;
       }
     }
-  }
-}
-
-.AboutArt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  //align-items: center;
-  .SiteName {
-    width: 95%;
-  }
-
-  .Bar {
-    width: 97%;
-    background: black;
-    height: 2px;
-    margin-bottom: 40px;
-  }
-  .Picture {
-    background-color: #0174df;
-    width: 600px;
-    img {
-      width: 550px;
-    }
-    float: left;
-  }
-  .About {
-    background-color: aquamarine;
-    width: 400px;
-    height: 400px;
   }
 }
