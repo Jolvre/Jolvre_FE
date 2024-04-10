@@ -70,7 +70,7 @@ const Main = () => {
   return (
     <div className="Main">
       <div className="Banner">배너</div>
-      <ul className="TxList">
+      <ul className="ArtList">
         {arts.map((arts) => (
           <ArtItem arts={arts} key={arts.id} />
         ))}
