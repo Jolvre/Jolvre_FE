@@ -20,20 +20,26 @@ const Art = () => {
           <img src={art} />
         </div>
         <nav className="Menu">
-          <div>
-            <IoPersonCircleOutline size={50} />
+          <div className="AboutArtist">
+            <IoPersonCircleOutline size={46} />
+            <div className="Bubbler">서울시립대학교</div>
           </div>
-          <div>
-            <IoInformationCircleOutline size={50} />
-          </div>
-          <div>
-            <SlNotebook size={33} />
-          </div>
+          <Link to="/aboutart">
+            <div>
+              <IoInformationCircleOutline size={50} />
+            </div>
+          </Link>
+          <Link to="/diary">
+            <div>
+              <SlNotebook size={33} />
+            </div>
+          </Link>
           <div>
             <IoChatbubblesOutline size={35} />
           </div>
         </nav>
       </div>
+      <div className="AboutArtist"></div>
     </div>
   );
 };

@@ -37,13 +37,62 @@
 
       div {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-bottom: 17px;
         width: 46px;
         height: 3vw;
         background-color: white;
+        color: black;
         border-radius: 23px;
+      }
+
+      .AboutArtist {
+        display: block;
+        cursor: pointer;
+        .Bubbler {
+          display: none;
+        }
+
+        &:hover {
+          .Bubbler {
+            transition-delay: 2s;
+            position: relative;
+            display: block;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 200px;
+            height: 100px;
+            left: -220px;
+            top: -50px;
+            box-shadow: 1.5px 1.5px 1.5px 1.5px #848484;
+            &::before {
+              content: "";
+              position: absolute;
+              border-style: solid;
+              border-width: 11px 0 11px 14px;
+              border-color: transparent black;
+              display: block;
+              width: 0;
+              z-index: 0;
+              right: -15px;
+              top: 9px;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              border-style: solid;
+              border-width: 10px 0 10px 15px;
+              border-color: transparent white;
+              display: block;
+              width: 0;
+              z-index: 1;
+              right: -15px;
+              top: 10px;
+            }
+          }
+        }
       }
     }
   }
