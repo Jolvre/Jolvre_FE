@@ -12,12 +12,15 @@ const ArtItem = ({ arts }) => {
     "https://cinema-prod.s3.ap-northeast-2.amazonaws.com/movies/" +
     name +
     ".jpg";*/
-  const picturepath = "zhanghao.jpg";
+  const picturepath = "noimage.png";
 
   return (
     <>
       <li className="ArtItem" style={{ zIndex: 50 }}>
-        <Link to={`/arts/${artist}/${name}`} state={{ name: name, id: id }}>
+        <Link
+          to={`/arts/${artist}/${name}`}
+          state={{ artist: artist, name: name, id: id }}
+        >
           <div className="image">
             <img src={picturepath} />
           </div>
