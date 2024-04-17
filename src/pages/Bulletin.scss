@@ -6,6 +6,7 @@
   background-color: white;
   width: 80vw;
   min-height: 100vh;
+  //padding-bottom: 20px;
 
   .Line {
     width: 75vw;
@@ -15,6 +16,35 @@
 
   .Title {
     width: 75vw;
+  }
+
+  .StartContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 75vw;
+    height: 30px;
+
+    div {
+      text-align: center;
+      font-weight: bold;
+    }
+    .info1 {
+      //background-color: antiquewhite;
+      width: 10vw;
+    }
+    .info2 {
+      //background-color: aqua;
+      width: 50vw;
+    }
+    .info3 {
+      //background-color: antiquewhite;
+      width: 15vw;
+    }
+  }
+
+  .Content {
+    min-height: 75vh;
   }
 
   .Back {

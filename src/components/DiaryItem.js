@@ -8,9 +8,15 @@ const DiaryItem = ({ diaries }) => {
   const date = diaries.date;
 
   return (
-    <Link to="/" state={{ title: title, date: date, id: id }}>
+    <Link
+      style={{ textDecoration: "none" }}
+      to="/"
+      state={{ title: title, date: date, id: id }}
+    >
       <div className="BulletinItem" style={{ zIndex: 50 }}>
-        {id} {title} {date}
+        <div className="info1">{id}</div>
+        <div className="info2">{title}</div>
+        <div className="info3">{date}</div>
       </div>
     </Link>
   );

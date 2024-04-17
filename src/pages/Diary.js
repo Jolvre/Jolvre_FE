@@ -30,7 +30,12 @@ const Diary = () => {
           <h1>{name}의 일기장</h1>
         </div>
         <div className="Line"></div>
-        <div className="StartContent">번호 제목 등록일</div>
+        <div className="StartContent">
+          <div className="info1">번호</div>
+          <div className="info2">제목</div>
+          <div className="info3">등록일</div>
+        </div>
+        <div className="Line"></div>
         <div className="Content">
           {diaries.map((diaries) => (
             <DiaryItem diaries={diaries} key={diaries.id} />
