@@ -15,18 +15,16 @@ const ArtItem = ({ arts }) => {
   const picturepath = "noimage.png";
 
   return (
-    <>
+    <Link
+      to={`/arts/${artist}/${name}`}
+      state={{ artist: artist, name: name, id: id }}
+    >
       <li className="ArtItem" style={{ zIndex: 50 }}>
-        <Link
-          to={`/arts/${artist}/${name}`}
-          state={{ artist: artist, name: name, id: id }}
-        >
-          <div className="image">
-            <img src={picturepath} />
-          </div>
-        </Link>
+        <div className="image">
+          <img src={picturepath} />
+        </div>
       </li>
-    </>
+    </Link>
   );
 };
 

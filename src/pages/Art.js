@@ -35,7 +35,10 @@ const Art = () => {
               <IoInformationCircleOutline size={50} />
             </div>
           </Link>
-          <Link to="/diary">
+          <Link
+            to={`/arts/${artist}/${name}/diary`}
+            state={{ artist: artist, name: name, id: id }}
+          >
             <div>
               <SlNotebook size={33} />
             </div>

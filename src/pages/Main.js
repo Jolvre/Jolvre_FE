@@ -2,7 +2,7 @@ import "./Main.scss";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import ArtItem from "../components/ArtItem";
-import ArtWorks from "../TestCases";
+import { ArtWorks } from "../TestCases";
 //import axios from "axios";
 
 const Main = () => {

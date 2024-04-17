@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import Main from "./pages/Main";
 import Art from "./pages/Art";
 import AboutArt from "./pages/AboutArt";
+import Diary from "./pages/Diary";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route index element={<Main />} />
         <Route path="/arts/:artist/:name" element={<Art />} />
         <Route path="/arts/:artist/:name/aboutart" element={<AboutArt />} />
+        <Route path="/arts/:artist/:name/diary" element={<Diary />} />
       </Route>
     </Routes>
   );
