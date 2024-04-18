@@ -6,12 +6,14 @@ const DiaryItem = ({ diaries }) => {
   const id = diaries.id;
   const title = diaries.title;
   const date = diaries.date;
+  const artist = diaries.artist;
+  const name = diaries.name;
 
   return (
     <Link
       style={{ textDecoration: "none" }}
-      to="/"
-      state={{ title: title, date: date, id: id }}
+      to={`/arts/${artist}/${name}/diary/${id}`}
+      state={{ name: name, artist: artist, title: title, date: date, id: id }}
     >
       <div className="BulletinItem" style={{ zIndex: 50 }}>
         <div className="info1">{id}</div>

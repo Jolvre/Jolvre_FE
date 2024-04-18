@@ -52,7 +52,7 @@ const Main = () => {
         setTxs(filteredTxs);
         */
         let filteredArts = [];
-        for (let i = 0; i < ArtWorks.length; i++) {
+        for (let i = 0; i < 3; i++) {
           filteredArts.push(ArtWorks[i]);
         }
         setArts(filteredArts);
@@ -70,6 +70,7 @@ const Main = () => {
   return (
     <div className="Main">
       <div className="Banner">배너</div>
+      <div className="Title">개인전시관</div>
       <ul className="ArtList">
         {arts.map((arts) => (
           <ArtItem arts={arts} key={arts.id} />

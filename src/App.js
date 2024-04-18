@@ -6,6 +6,7 @@ import PersonalExhibition from "./pages/PersonalExhibition";
 import Art from "./pages/Art";
 import AboutArt from "./pages/AboutArt";
 import Diary from "./pages/Diary";
+import PerDiary from "./pages/PerDiary";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/arts/:artist/:name" element={<Art />} />
         <Route path="/arts/:artist/:name/aboutart" element={<AboutArt />} />
         <Route path="/arts/:artist/:name/diary" element={<Diary />} />
+        <Route path="/arts/:artist/:name/diary/:id" element={<PerDiary />} />
       </Route>
     </Routes>
   );

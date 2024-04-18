@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import DiaryItem from "../components/DiaryItem";
-import "./Bulletin.scss";
+import "./PerBulletin.scss";
 import { TestDiaries } from "../TestCases";
 
-const Diary = () => {
+const PerDiary = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const id = location.state.id;
+  const id = location.state.id; //diary id
+  const title = location.state.title;
+  const date = location.state.date;
   const name = location.state.name;
-  const artist = location.state.artist;
+
   //const [diaries, setDiaries] = useState(null);
 
   //let filteredDiaries = [];
@@ -25,23 +26,18 @@ const Diary = () => {
   };
 
   return (
-    <div className="Diary">
-      <div className="Bulletin">
+    <div className="PerDiary">
+      <div className="PerBulletin">
+        <div className="SubTitle">
+          {name}의 일기장 / {title}
+        </div>
         <div className="Title">
-          <h1>{name}의 일기장</h1>
+          <div className="RealTitle">{title}</div>
+          <div className="Date">{date}</div>
         </div>
+
         <div className="Line"></div>
-        <div className="StartContent">
-          <div className="info1">번호</div>
-          <div className="info2">제목</div>
-          <div className="info3">등록일</div>
-        </div>
-        <div className="Line"></div>
-        <div className="Content">
-          {diaries.map((diaries) => (
-            <DiaryItem diaries={diaries} key={diaries.id} />
-          ))}
-        </div>
+        <div className="Content">백에서 내용 불러오기</div>
         <div className="Line"></div>
         <button className="Back" onClick={onClick}>
           돌아가기
@@ -51,4 +47,4 @@ const Diary = () => {
   );
 };
 
-export default Diary;
+export default PerDiary;

@@ -62,8 +62,20 @@ const ArtWorks = [
 ];
 
 const TestDiaries = [
-  { id: 1, title: "주제 구상하기", date: "2024.04.01" },
-  { id: 2, title: "스케치를 시작하며", date: "2024.04.12" },
+  {
+    id: 1,
+    title: "주제 구상하기",
+    date: "2024.04.01",
+    artist: "aaa",
+    name: "first",
+  },
+  {
+    id: 2,
+    title: "스케치를 시작하며",
+    date: "2024.04.12",
+    artist: "aaa",
+    name: "first",
+  },
 ];
 
 const Artists = [
