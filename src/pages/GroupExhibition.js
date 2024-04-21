@@ -1,19 +1,15 @@
 import "./Main.scss";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-import ArtItem from "../components/ArtItem";
 import GroupItem from "../components/GroupItem";
-
-import { ArtWorks, GroupExhibitions } from "../TestCases";
+import { GroupExhibitions } from "../TestCases";
 //import axios from "axios";
 
-const Main = () => {
+const GroupExhibition = () => {
   const category = [
     //장르 조회
   ]; // 나중에 구현
-  const [arts, setArts] = useState(null);
   const [groups, setGroups] = useState(null);
-
   const [categoryItem, setCategoryItem] = useState(category[0]);
 
   const useInterval = (callback, delay) => {
@@ -55,13 +51,10 @@ const Main = () => {
         }
         setTxs(filteredTxs);
         */
-        let filteredArts = [];
         let filteredGroups = [];
-        for (let i = 0; i < 3; i++) {
-          filteredArts.push(ArtWorks[i]);
+        for (let i = 0; i < GroupExhibitions.length; i++) {
           filteredGroups.push(GroupExhibitions[i]);
         }
-        setArts(filteredArts);
         setGroups(filteredGroups);
       } catch (e) {
         console.log(e);
@@ -70,27 +63,20 @@ const Main = () => {
     fetchData();
   }, 500);
 
-  if (!arts) {
+  if (!groups) {
     return null;
   }
 
   return (
     <div className="Main">
-      <div className="Banner">배너</div>
-      <div className="Title">단체 전시관</div>
+      <div className="Banner">추천</div>
       <ul className="ArtList">
         {groups.map((groups) => (
           <GroupItem arts={groups} key={groups.id} />
-        ))}
-      </ul>
-      <div className="Title">개인 전시관</div>
-      <ul className="ArtList">
-        {arts.map((arts) => (
-          <ArtItem arts={arts} key={arts.id} />
         ))}
       </ul>
     </div>
   );
 };
 
-export default Main;
+export default GroupExhibition;

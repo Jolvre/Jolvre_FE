@@ -1,3 +1,18 @@
+# 진행 상황
+
+(04/21) 현재 UI 및 페이지 이동만 구현 중.
+
+메인 O
+단체 전시관 O (필터링 제외)
+개인 전시관 O (필터링, 일기장-파노라마, 채팅 제외)
+커뮤니티 O
+FAQ X
+마이페이지 X
+로그인 X
+Header O
+Footer O
+알림창 X
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

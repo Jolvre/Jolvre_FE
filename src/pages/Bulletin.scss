@@ -15,7 +15,26 @@
   }
 
   .Title {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
     width: 75vw;
+    .Letter {
+      width: 70vw;
+    }
+    .CreateButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 30px;
+      background-color: #610b0b;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      border: 2px solid #bf9e27;
+      margin-bottom: 5px;
+    }
   }
 
   .StartContent {
@@ -26,19 +45,27 @@
     height: 30px;
 
     div {
-      text-align: center;
       font-weight: bold;
     }
     .info1 {
-      //background-color: antiquewhite;
+      text-align: center;
       width: 10vw;
     }
     .info2 {
-      //background-color: aqua;
+      text-align: center;
       width: 50vw;
     }
     .info3 {
-      //background-color: antiquewhite;
+      text-align: center;
+      width: 15vw;
+    }
+    .info4 {
+      text-align: left;
+      width: 43vw;
+      padding-left: 2vw;
+    }
+    .info5 {
+      text-align: center;
       width: 15vw;
     }
   }

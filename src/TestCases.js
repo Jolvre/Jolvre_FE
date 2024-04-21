@@ -78,12 +78,23 @@ const TestDiaries = [
   },
 ];
 
-const Artists = [
+const GroupExhibitions = [
   {
     id: 1,
-    name: "aaa",
-    university: "서울시립대학교",
+    name: "제 11회 서울시립대학교 디자인과 전시회",
+  },
+  {
+    id: 2,
+    name: "2024년도 1학기 OO대학교 졸업작품 전시회 ",
+  },
+  {
+    id: 3,
+    name: "2024년도 2월 ~~ 전시회",
+  },
+  {
+    id: 4,
+    name: "제 7회 ~~대학교 디자인과 전시회",
   },
 ];
 
-export { ArtWorks, TestDiaries };
+export { ArtWorks, TestDiaries, GroupExhibitions };

@@ -7,19 +7,25 @@
   border-bottom: 1px solid black;
   color: black;
 
-  div {
-    text-align: center;
-  }
   .info1 {
-    //background-color: antiquewhite;
+    text-align: center;
     width: 10vw;
   }
   .info2 {
-    //background-color: aqua;
+    text-align: center;
     width: 50vw;
   }
   .info3 {
-    //background-color: antiquewhite;
+    text-align: center;
+    width: 15vw;
+  }
+  .info4 {
+    text-align: left;
+    width: 43vw;
+    padding-left: 2vw;
+  }
+  .info5 {
+    text-align: center;
     width: 15vw;
   }
 }

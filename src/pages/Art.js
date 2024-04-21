@@ -12,12 +12,6 @@ import { PiWechatLogoLight } from "react-icons/pi";
 const Art = () => {
   const location = useLocation();
 
-  let idd = 1;
-
-  const onClick = () => {
-    idd = 2;
-  };
-
   const id = location.state.id;
   const name = location.state.name;
   const artist = location.state.artist;

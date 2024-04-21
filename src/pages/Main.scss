@@ -40,10 +40,23 @@
       }
     }
   }
+
+  .GroupName {
+    width: 75vw;
+    color: #d8d8d8;
+  }
+
   .Title {
     width: 80vw;
     color: white;
   }
+
+  .Line {
+    width: 75vw;
+    height: 3px;
+    background-color: #d8d8d8;
+  }
+
   .ArtList {
     z-index: 10;
     display: grid;
