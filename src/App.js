@@ -11,6 +11,10 @@ import Diary from "./pages/Diary";
 import PerDiary from "./pages/PerDiary";
 import Community from "./pages/Community";
 import PerCommunity from "./pages/PerCommunity";
+import FAQ from "./pages/FAQ";
+import Login from "./pages/Login";
+import Layout_Mypage from "./Layout_Mypage";
+import MyInformation from "./pages/MyInformation";
 
 const App = () => {
   return (
@@ -29,6 +33,11 @@ const App = () => {
           path="/community/:artist/:title/:id"
           element={<PerCommunity />}
         />
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/login" element={<Login />} />
+      </Route>
+      <Route element={<Layout_Mypage />}>
+        <Route path="/mypage/myinformation" element={<MyInformation />} />
       </Route>
     </Routes>
   );

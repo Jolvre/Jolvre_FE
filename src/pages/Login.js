@@ -1,0 +1,98 @@
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import "./Login.scss";
+import { Link, useNavigate } from "react-router-dom";
+import bg from "../assets/20240427_002645.png";
+
+const Login = () => {
+  // 지정된 ID를 가진 유저에 대한 요청
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
+
+  const [inputMn, setInputMn] = useState("");
+  const navigate = useNavigate();
+
+  const saveInputId = (e) => {
+    setInputId(e.target.value);
+  };
+
+  const saveInputPw = (e) => {
+    setInputPw(e.target.value);
+  };
+  const saveInputMn = (e) => {
+    setInputMn(e.target.value);
+  };
+
+  function onClickLogin(e) {
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: inputId,
+        password: inputPw,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+          sessionStorage.setItem("user_id", inputId);
+          document.location.href = "/movie_c";
+        } else {
+          alert("다시 로그인해주세요.");
+        }
+      })
+      .catch(() => {});
+    e.preventDefault();
+  }
+
+  const check = (id, pw) => {
+    if (id === "master" && pw === "master") {
+      document.location.href = "/movie";
+    }
+  };
+
+  return (
+    <div className="Login">
+      <div className="LoginForm">
+        <div className="Title">로그인</div>
+        <form onSubmit={onClickLogin}>
+          <div className="Input">
+            <input
+              id="id"
+              type="text"
+              placeholder="ID"
+              value={inputId}
+              onChange={saveInputId}
+            />
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              value={inputPw}
+              onChange={saveInputPw}
+            />
+          </div>
+          <button type="submit">로그인</button>
+        </form>
+        <div className="Options">
+          <Link to="/join">
+            <button className="join">회원가입</button>
+          </Link>
+          <Link to="/findID">
+            <button className="join">아이디 찾기</button>
+          </Link>
+          <Link to="/findPW">
+            <button className="join">비밀번호 찾기</button>
+          </Link>
+        </div>
+      </div>
+      <div className="Advertise">
+        <div className="Picture">광고</div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

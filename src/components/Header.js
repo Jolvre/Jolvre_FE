@@ -21,7 +21,7 @@ const Header = () => {
         <Link to="/FAQ">
           <div>FAQ</div>
         </Link>
-        <Link to="/">
+        <Link to="/mypage/myinformation">
           <div>마이페이지</div>
         </Link>
         <Link to="/login">

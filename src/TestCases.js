@@ -97,4 +97,37 @@ const GroupExhibitions = [
   },
 ];
 
-export { ArtWorks, TestDiaries, GroupExhibitions };
+const Artists = [
+  {
+    id: 1,
+    name: "aaa",
+    user_id: "aaa_id",
+    password: "aaaaaa",
+    university: "서울시립대학교",
+    major: "디자인과",
+    verified: false,
+  },
+  {
+    id: 2,
+    name: "bbb",
+    university: "서울시립대학교",
+    major: "디자인과",
+    verified: true,
+  },
+  {
+    id: 3,
+    name: "ccc",
+    university: "서울시립대학교",
+    major: "디자인과",
+    verified: true,
+  },
+  {
+    id: 4,
+    name: "d",
+    university: "서울시립대학교",
+    major: "디자인과",
+    verified: true,
+  },
+];
+
+export { ArtWorks, TestDiaries, GroupExhibitions, Artists };

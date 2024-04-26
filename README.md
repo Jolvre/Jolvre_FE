@@ -3,14 +3,23 @@
 (04/21) 현재 UI 및 페이지 이동만 구현 중.
 
 메인 O
+
 단체 전시관 O (필터링 제외)
+
 개인 전시관 O (필터링, 일기장-파노라마, 채팅 제외)
+
 커뮤니티 O
-FAQ X
-마이페이지 X
-로그인 X
+
+FAQ O
+
+마이페이지 - 내 정보 O / 내 프로젝트 X / 초대장 만들기 X / 단체전시관 X
+
+로그인 O
+
 Header O
+
 Footer O
+
 알림창 X
 
 # Getting Started with Create React App
