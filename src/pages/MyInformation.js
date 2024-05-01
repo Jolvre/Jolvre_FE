@@ -71,9 +71,6 @@ const MyInformation = () => {
           <div className="Letter">
             <h1>내 정보</h1>
           </div>
-          <Link style={{ textDecoration: "none" }} to={`/community/create`}>
-            <div className="CreateButton">글쓰기</div>
-          </Link>
         </div>
         <div className="Line"></div>
         <div className="Content">

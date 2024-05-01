@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import ArtItem from "../components/ArtItem";
 import GroupItem from "../components/GroupItem";
-
+import { FiPlusCircle } from "react-icons/fi";
 import { ArtWorks, GroupExhibitions } from "../TestCases";
 //import axios from "axios";
 
@@ -77,18 +77,36 @@ const Main = () => {
   return (
     <div className="Main">
       <div className="Banner">배너</div>
-      <div className="Title">단체 전시관</div>
+      <div className="Line"></div>
+      <div className="Title">
+        <div className="Letter">단체 전시관</div>
+        <Link style={{ textDecoration: "none" }} to={`/groups`}>
+          <div className="GoToSee">
+            <FiPlusCircle />
+          </div>
+        </Link>
+      </div>
       <ul className="ArtList">
         {groups.map((groups) => (
           <GroupItem arts={groups} key={groups.id} />
         ))}
       </ul>
-      <div className="Title">개인 전시관</div>
+      <div className="Line"></div>
+
+      <div className="Title">
+        <div className="Letter">개인 전시관</div>
+        <Link style={{ textDecoration: "none" }} to={`/arts`}>
+          <div className="GoToSee">
+            <FiPlusCircle />
+          </div>
+        </Link>
+      </div>
       <ul className="ArtList">
         {arts.map((arts) => (
           <ArtItem arts={arts} key={arts.id} />
         ))}
       </ul>
+      <div className="Line"></div>
     </div>
   );
 };

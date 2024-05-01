@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import CommunityItem from "../components/CommunityItem";
+import FAQItem from "../components/FAQItem";
 import "./Bulletin.scss";
-import { TestDiaries } from "../TestCases";
+import { Faqs } from "../TestCases";
 
 const FAQ = () => {
   //const [diaries, setDiaries] = useState(null);
@@ -12,7 +12,7 @@ const FAQ = () => {
   //  filteredDiaries.push(TestDiaries[i]);
   //}
   //setDiaries(filteredDiaries);
-  const diaries = TestDiaries;
+  const faqs = Faqs;
 
   return (
     <div className="Diary">
@@ -21,21 +21,11 @@ const FAQ = () => {
           <div className="Letter">
             <h1>FAQ</h1>
           </div>
-          <Link style={{ textDecoration: "none" }} to={`/community/create`}>
-            <div className="CreateButton">글쓰기</div>
-          </Link>
-        </div>
-
-        <div className="Line"></div>
-        <div className="StartContent">
-          <div className="info4">제목</div>
-          <div className="info5">작성자</div>
-          <div className="info3">등록일</div>
         </div>
         <div className="Line"></div>
         <div className="Content">
-          {diaries.map((diaries) => (
-            <CommunityItem diaries={diaries} key={diaries.id} />
+          {faqs.map((faqs) => (
+            <FAQItem faqs={faqs} key={faqs.id} />
           ))}
         </div>
         <div className="Line"></div>

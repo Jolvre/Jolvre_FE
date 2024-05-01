@@ -14,11 +14,11 @@ const Navbar = () => {
         <Link to="/mypage/myproject">
           <div>내 프로젝트</div>
         </Link>
-        <Link to="/community">
+        <Link to="/mypage/myinvitation">
           <div>초대장 만들기</div>
         </Link>
-        <Link to="/FAQ">
-          <div>단체 전시관</div>
+        <Link to="/mypage/mygroup">
+          <div>내 단체 전시관</div>
         </Link>
       </div>
     </header>

@@ -37,9 +37,11 @@ const PerCommunity = () => {
         <div className="Line"></div>
         <div className="Content">백에서 내용 불러오기</div>
         <div className="Line"></div>
-        <button className="Back" onClick={onClick}>
-          목록
-        </button>
+        <div className="Foot">
+          <button className="Back" onClick={onClick}>
+            목록
+          </button>
+        </div>
         <div className="SubTitle">댓글</div>
         <div className="Line" style={{ backgroundColor: "#6e6e6e" }}></div>
       </div>

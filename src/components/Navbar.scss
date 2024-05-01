@@ -14,6 +14,19 @@
       font-size: 1.3rem;
       color: #d8d8d8;
       float: left;
+      &:hover {
+        color: #bf9e27;
+      }
+      &.active {
+        color: darkorange;
+        border-bottom: 4px solid darkorange;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        &:hover {
+          background: white;
+          color: darkorange;
+        }
+      }
     }
 
     .Title {

@@ -10,6 +10,7 @@ const GroupExhibition = () => {
     //장르 조회
   ]; // 나중에 구현
   const [groups, setGroups] = useState(null);
+  const [recommend, setRecommend] = useState(null);
   const [categoryItem, setCategoryItem] = useState(category[0]);
 
   const useInterval = (callback, delay) => {
@@ -52,10 +53,15 @@ const GroupExhibition = () => {
         setTxs(filteredTxs);
         */
         let filteredGroups = [];
+        let filteredRecommend = [];
         for (let i = 0; i < GroupExhibitions.length; i++) {
           filteredGroups.push(GroupExhibitions[i]);
+          if (filteredRecommend.length < 3) {
+            filteredRecommend.push(GroupExhibitions[i]);
+          }
         }
         setGroups(filteredGroups);
+        setRecommend(filteredRecommend);
       } catch (e) {
         console.log(e);
       }
@@ -69,7 +75,15 @@ const GroupExhibition = () => {
 
   return (
     <div className="Main">
-      <div className="Banner">추천</div>
+      <div className="Recommend">
+        <div className="Title">이번 달 추천</div>
+
+        <ul className="ArtList">
+          {recommend.map((groups) => (
+            <GroupItem arts={groups} key={groups.id} />
+          ))}
+        </ul>
+      </div>
       <ul className="ArtList">
         {groups.map((groups) => (
           <GroupItem arts={groups} key={groups.id} />

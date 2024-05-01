@@ -10,6 +10,7 @@ const PersonalExhibition = () => {
     //장르 조회
   ]; // 나중에 구현
   const [arts, setArts] = useState(null);
+  const [recommend, setRecommend] = useState(null);
   const [categoryItem, setCategoryItem] = useState(category[0]);
 
   const useInterval = (callback, delay) => {
@@ -52,10 +53,16 @@ const PersonalExhibition = () => {
         setTxs(filteredTxs);
         */
         let filteredArts = [];
+        let filteredRecommend = [];
+
         for (let i = 0; i < ArtWorks.length; i++) {
           filteredArts.push(ArtWorks[i]);
+          if (filteredRecommend.length < 3) {
+            filteredRecommend.push(ArtWorks[i]);
+          }
         }
         setArts(filteredArts);
+        setRecommend(filteredRecommend);
       } catch (e) {
         console.log(e);
       }
@@ -69,7 +76,15 @@ const PersonalExhibition = () => {
 
   return (
     <div className="Main">
-      <div className="Banner">추천</div>
+      <div className="Recommend">
+        <div className="Title">이번 달 추천</div>
+
+        <ul className="ArtList">
+          {recommend.map((arts) => (
+            <ArtItem arts={arts} key={arts.id} />
+          ))}
+        </ul>
+      </div>
       <ul className="ArtList">
         {arts.map((arts) => (
           <ArtItem arts={arts} key={arts.id} />

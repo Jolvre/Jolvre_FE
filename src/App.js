@@ -15,6 +15,9 @@ import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Layout_Mypage from "./Layout_Mypage";
 import MyInformation from "./pages/MyInformation";
+import MyProject from "./pages/MyProject";
+import MyInvitation from "./pages/MyInvitation";
+import MyGroup from "./pages/MyGroup";
 
 const App = () => {
   return (
@@ -38,6 +41,10 @@ const App = () => {
       </Route>
       <Route element={<Layout_Mypage />}>
         <Route path="/mypage/myinformation" element={<MyInformation />} />
+        <Route path="/mypage/myproject" element={<MyProject />} />
+        <Route path="/mypage/myinvitation" element={<MyInvitation />} />
+        <Route path="/mypage/mygroup" element={<MyGroup />} />
+        MyGroup
       </Route>
     </Routes>
   );

@@ -6,7 +6,6 @@ import ArtWorks from "../TestCases";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { SlNotebook } from "react-icons/sl";
-import { IoChatbubblesOutline } from "react-icons/io5";
 import { PiWechatLogoLight } from "react-icons/pi";
 
 const Art = () => {

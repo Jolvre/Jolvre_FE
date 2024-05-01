@@ -1,8 +1,13 @@
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import { HiOutlineBell } from "react-icons/hi";
+import { Notices } from "../TestCases";
+import NoticeItem from "./NoticeItem";
 
 const Header = () => {
+  const notices = Notices;
+
   return (
     <header className="Header">
       <div className="ShowMenu">
@@ -28,6 +33,14 @@ const Header = () => {
           <div>로그인</div>
         </Link>
       </div>
+      <button className="Notice">
+        <HiOutlineBell size={46} />
+        <div className="Bubbler">
+          {notices.map((notices) => (
+            <NoticeItem notices={notices} key={notices.id} />
+          ))}
+        </div>
+      </button>
     </header>
   );
 };

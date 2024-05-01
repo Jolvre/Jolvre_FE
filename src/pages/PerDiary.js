@@ -39,9 +39,11 @@ const PerDiary = () => {
         <div className="Line"></div>
         <div className="Content">백에서 내용 불러오기</div>
         <div className="Line"></div>
-        <button className="Back" onClick={onClick}>
-          돌아가기
-        </button>
+        <div className="Foot">
+          <button className="Back" onClick={onClick}>
+            목록
+          </button>
+        </div>
       </div>
     </div>
   );

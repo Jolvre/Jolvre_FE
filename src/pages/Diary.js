@@ -43,9 +43,11 @@ const Diary = () => {
           ))}
         </div>
         <div className="Line"></div>
-        <button className="Back" onClick={onClick}>
-          돌아가기
-        </button>
+        <div className="Foot">
+          <button className="Back" onClick={onClick}>
+            돌아가기
+          </button>
+        </div>
       </div>
     </div>
   );
