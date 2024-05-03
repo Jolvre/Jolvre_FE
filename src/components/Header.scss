@@ -10,21 +10,23 @@
 
     div {
       width: auto;
-      height: 30px;
+      height: auto;
       margin-left: 40px;
-      margin-top: 35px;
-      font-size: 1.5rem;
+      margin-top: 45px;
+      font-size: 1.2rem;
       color: #bf9e27;
       float: left;
+      &:hover {
+        color: white;
+      }
     }
 
     .SiteName {
-      height: 70px;
       font-size: 2.3rem;
       font-weight: bold;
-      margin-top: 25px;
-      margin-left: 20px;
-      margin-right: 20px;
+      margin-top: 20px;
+      margin-left: 40px;
+      margin-right: 450px;
       color: white;
     }
   }

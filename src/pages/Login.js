@@ -6,10 +6,9 @@ import bg from "../assets/20240427_002645.png";
 
 const Login = () => {
   // 지정된 ID를 가진 유저에 대한 요청
-  const [inputId, setInputId] = useState("");
-  const [inputPw, setInputPw] = useState("");
+  const [inputId, setInputId] = useState(""); //메일
+  const [inputPw, setInputPw] = useState(""); //비번
 
-  const [inputMn, setInputMn] = useState("");
   const navigate = useNavigate();
 
   const saveInputId = (e) => {
@@ -18,9 +17,6 @@ const Login = () => {
 
   const saveInputPw = (e) => {
     setInputPw(e.target.value);
-  };
-  const saveInputMn = (e) => {
-    setInputMn(e.target.value);
   };
 
   function onClickLogin(e) {
@@ -47,12 +43,6 @@ const Login = () => {
     e.preventDefault();
   }
 
-  const check = (id, pw) => {
-    if (id === "master" && pw === "master") {
-      document.location.href = "/movie";
-    }
-  };
-
   return (
     <div className="Login">
       <div className="LoginForm">
@@ -62,7 +52,7 @@ const Login = () => {
             <input
               id="id"
               type="text"
-              placeholder="ID"
+              placeholder="Email"
               value={inputId}
               onChange={saveInputId}
             />

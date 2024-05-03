@@ -14,11 +14,15 @@ const Art = () => {
   const id = location.state.id;
   const name = location.state.name;
   const artist = location.state.artist;
+  const me = "aaa"; //sessionStorage.getItem("user_id");
 
   return (
     <div className="Art">
       <div className="Frame">
-        <div className="ArtName">{name}</div>
+        <div className="TitleFrame">
+          <div className="ArtName">{name}</div>
+          <div className="SellStatus">{"판매 중"}</div>
+        </div>
         <div className="ImageFrame">
           <div className="Image">
             <img src={art} />
@@ -48,8 +52,8 @@ const Art = () => {
             </Link>
             <div className="Name">일기장</div>
             <Link
-              to={`/arts/${artist}/${name}/나/chat`}
-              state={{ artist: artist, name: name, id: id }}
+              to={`/arts/${artist}/${name}/${me}/chat`}
+              state={{ artist: artist, name: name, me: me }}
             >
               <div className="Icon">
                 <PiWechatLogoLight size={35} />

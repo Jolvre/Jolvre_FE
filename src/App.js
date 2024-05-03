@@ -9,6 +9,7 @@ import Art from "./pages/Art";
 import AboutArt from "./pages/AboutArt";
 import Diary from "./pages/Diary";
 import PerDiary from "./pages/PerDiary";
+import Chat from "./pages/Chat";
 import Community from "./pages/Community";
 import PerCommunity from "./pages/PerCommunity";
 import FAQ from "./pages/FAQ";
@@ -31,6 +32,8 @@ const App = () => {
         <Route path="/arts/:artist/:name/aboutart" element={<AboutArt />} />
         <Route path="/arts/:artist/:name/diary" element={<Diary />} />
         <Route path="/arts/:artist/:name/diary/:id" element={<PerDiary />} />
+        <Route path="/arts/:artist/:name/:me/chat" element={<Chat />} />
+
         <Route path="/community" element={<Community />} />
         <Route
           path="/community/:artist/:title/:id"

@@ -10,13 +10,29 @@
     width: 80vw;
     height: 90vh;
 
-    .ArtName {
-      width: auto;
+    .TitleFrame {
+      display: flex;
+      flex-direction: row;
+      align-items: end;
+      //width: auto;
       margin-top: 15px;
       padding-left: 2vw;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #e6e6e6;
+      .ArtName {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: white;
+        width: 69vw;
+      }
+      .SellStatus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 25px;
+        font-weight: bold;
+        background-color: pink;
+        border-radius: 5px;
+      }
     }
 
     .ImageFrame {

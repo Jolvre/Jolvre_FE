@@ -34,7 +34,7 @@ const Header = () => {
         </Link>
       </div>
       <button className="Notice">
-        <HiOutlineBell size={46} />
+        <HiOutlineBell size={35} />
         <div className="Bubbler">
           {notices.map((notices) => (
             <NoticeItem notices={notices} key={notices.id} />
