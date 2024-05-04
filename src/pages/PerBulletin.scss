@@ -37,6 +37,13 @@
       font-size: 1.7rem;
       font-weight: bold;
     }
+    .WriteRealTitle {
+      width: 55vw;
+      padding-bottom: 5px;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      border: 2px solid #d8d8d8;
+    }
     .Date {
       display: flex;
       justify-content: right;
@@ -46,9 +53,17 @@
   }
 
   .Content {
-    margin-top: 20px;
+    margin: 20px 0;
     width: 75vw;
     min-height: 60vh;
+  }
+
+  .WriteContent {
+    margin: 20px 0;
+    width: 75vw;
+    min-height: 60vh;
+    border-radius: 8px;
+    border: 2px solid #d8d8d8;
   }
 
   .Foot {
@@ -67,6 +82,18 @@
       font-size: 1rem;
       font-weight: bold;
       color: white;
+    }
+
+    .submit {
+      background-color: #610b0b;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      border: 2px solid #bf9e27;
+      width: 90px;
+      height: 40px;
+      cursor: pointer;
     }
   }
 }

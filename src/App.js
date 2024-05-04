@@ -12,8 +12,10 @@ import PerDiary from "./pages/PerDiary";
 import Chat from "./pages/Chat";
 import Community from "./pages/Community";
 import PerCommunity from "./pages/PerCommunity";
+import UploadCommunity from "./pages/UploadCommunity";
 import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import Layout_Mypage from "./Layout_Mypage";
 import MyInformation from "./pages/MyInformation";
 import MyProject from "./pages/MyProject";
@@ -33,14 +35,15 @@ const App = () => {
         <Route path="/arts/:artist/:name/diary" element={<Diary />} />
         <Route path="/arts/:artist/:name/diary/:id" element={<PerDiary />} />
         <Route path="/arts/:artist/:name/:me/chat" element={<Chat />} />
-
         <Route path="/community" element={<Community />} />
         <Route
           path="/community/:artist/:title/:id"
           element={<PerCommunity />}
         />
+        <Route path="/community/upload" element={<UploadCommunity />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Route>
       <Route element={<Layout_Mypage />}>
         <Route path="/mypage/myinformation" element={<MyInformation />} />

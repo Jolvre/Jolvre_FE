@@ -21,7 +21,7 @@ const Community = () => {
           <div className="Letter">
             <h1>커뮤니티</h1>
           </div>
-          <Link style={{ textDecoration: "none" }} to={`/community/create`}>
+          <Link style={{ textDecoration: "none" }} to={`/community/upload`}>
             <div className="CreateButton">글쓰기</div>
           </Link>
         </div>

@@ -103,7 +103,7 @@ const MyInformation = () => {
               }
             })()}
             <Link to="/mypage_ud">
-              <button className="gotoupdate">수정</button>
+              <button className="submit">수정</button>
             </Link>
           </form>
         </div>

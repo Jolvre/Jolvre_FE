@@ -67,7 +67,7 @@ const Login = () => {
           <button type="submit">로그인</button>
         </form>
         <div className="Options">
-          <Link to="/join">
+          <Link to="/signup">
             <button className="join">회원가입</button>
           </Link>
           <Link to="/findID">
