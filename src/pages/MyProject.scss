@@ -47,6 +47,74 @@
     padding: 0;
     list-style: none;
   }
+  .Content {
+    min-height: 75vh;
+    form {
+      display: flex;
+      width: 55vw;
+      margin-top: 20px;
+      flex-direction: column;
+      text-align: left;
+
+      div {
+        margin-right: 5vw;
+      }
+
+      p {
+        font-weight: bold;
+      }
+
+      input {
+        width: 250px;
+        height: 35px;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        background-color: #d8d8d8;
+        outline: none;
+        border: none;
+      }
+
+      .Check {
+        width: 50px;
+      }
+
+      .Bundle {
+        display: flex;
+        flex-direction: row;
+        width: 55vw;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      textarea {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        width: 50vw;
+        height: 300px;
+        border-radius: 8px;
+        background-color: #d8d8d8;
+        border: none;
+        outline: none;
+      }
+      .WriteWord {
+        height: 100px;
+      }
+
+      .submit {
+        margin-left: 47vw;
+        margin-bottom: 60px;
+        background-color: #610b0b;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        border: 2px solid #bf9e27;
+        width: 90px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .Diary {

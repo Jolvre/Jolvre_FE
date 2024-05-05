@@ -54,7 +54,10 @@ const MyProject = () => {
           <div className="Letter">
             <h1>내 프로젝트</h1>
           </div>
-          <Link style={{ textDecoration: "none" }} to={`/community/create`}>
+          <Link
+            style={{ textDecoration: "none" }}
+            to={`/mypage/myproject/upload`}
+          >
             <div className="CreateButton">새로 만들기</div>
           </Link>
         </div>

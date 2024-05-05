@@ -55,7 +55,7 @@ const SignUp = () => {
         name: inputName,
         password: inputPw,
         nickname: inputNickName,
-        age: inputAge,
+        age: +inputAge,
         city: inputCity,
         school: inputSchool,
       }),

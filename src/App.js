@@ -19,12 +19,16 @@ import SignUp from "./pages/SignUp";
 import Layout_Mypage from "./Layout_Mypage";
 import MyInformation from "./pages/MyInformation";
 import MyProject from "./pages/MyProject";
+import UploadProject from "./pages/UploadProject";
 import MyInvitation from "./pages/MyInvitation";
 import MyGroup from "./pages/MyGroup";
+
+import View from "./pages/testglb";
 
 const App = () => {
   return (
     <Routes>
+      <Route path="/model" element={<View />} />
       <Route element={<Layout />}>
         <Route index element={<Main />} />
         <Route path="/groups" element={<GroupExhibition />} />
@@ -48,9 +52,9 @@ const App = () => {
       <Route element={<Layout_Mypage />}>
         <Route path="/mypage/myinformation" element={<MyInformation />} />
         <Route path="/mypage/myproject" element={<MyProject />} />
+        <Route path="/mypage/myproject/upload" element={<UploadProject />} />
         <Route path="/mypage/myinvitation" element={<MyInvitation />} />
         <Route path="/mypage/mygroup" element={<MyGroup />} />
-        MyGroup
       </Route>
     </Routes>
   );

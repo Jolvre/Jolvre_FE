@@ -1,6 +1,7 @@
 import "./Main.scss";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
+import Banner from "../components/Banner";
 import ArtItem from "../components/ArtItem";
 import GroupItem from "../components/GroupItem";
 import { FiPlusCircle } from "react-icons/fi";
@@ -76,7 +77,9 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <div className="Banner">배너</div>
+      <div className="BannerFrame">
+        <Banner />
+      </div>
       <div className="Line"></div>
       <div className="Title">
         <div className="Letter">단체 전시관</div>
