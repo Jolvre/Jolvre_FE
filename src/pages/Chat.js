@@ -7,6 +7,7 @@ import { IoSend } from "react-icons/io5";
 import "./Chat.scss";
 
 const SOCKET_SERVER_URL = "http://your-socket-server-url";
+// url은 ws://localhost:8080/ws/chat이 될 예정
 
 const Chat = () => {
   const location = useLocation();
@@ -17,8 +18,12 @@ const Chat = () => {
   const artist = location.state.artist;
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
-  const socket = io(SOCKET_SERVER_URL);
 
+  // 방 있는지 검사(이메일 포스트해주면 방 아이디 받아옴)
+  // 방 아이디 받아옴
+  // socketseverurl에 말씀해주신 추가 endpoint(/pub/chat/{roomId})로 socket io 작성
+
+  const socket = io(SOCKET_SERVER_URL);
   useEffect(() => {
     //const { name, room } = queryString.parse(window.location.search)
     // 컴포넌트가 마운트될 때 소켓 연결
