@@ -77,11 +77,13 @@
       width: 80px;
       height: 32px;
       background-color: #6e6e6e;
-      border: #585858 solid 2px;
+      border: none;
+      outline: none;
       border-radius: 5px;
       font-size: 1rem;
       font-weight: bold;
       color: white;
+      margin-left: 10px;
     }
 
     .submit {

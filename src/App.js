@@ -20,6 +20,7 @@ import Layout_Mypage from "./Layout_Mypage";
 import MyInformation from "./pages/MyInformation";
 import MyProject from "./pages/MyProject";
 import UploadProject from "./pages/UploadProject";
+import UpdateCommunity from "./pages/UpdateCommunity";
 import MyInvitation from "./pages/MyInvitation";
 import MyGroup from "./pages/MyGroup";
 
@@ -40,11 +41,9 @@ const App = () => {
         <Route path="/arts/:artist/:name/diary/:id" element={<PerDiary />} />
         <Route path="/arts/:artist/:name/:me/chat" element={<Chat />} />
         <Route path="/community" element={<Community />} />
-        <Route
-          path="/community/:artist/:title/:id"
-          element={<PerCommunity />}
-        />
+        <Route path="/community/:id" element={<PerCommunity />} />
         <Route path="/community/upload" element={<UploadCommunity />} />
+        <Route path="/community/:id/update" element={<UpdateCommunity />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

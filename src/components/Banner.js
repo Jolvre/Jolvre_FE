@@ -1,9 +1,9 @@
 // swiper 삭제하기
 import React, { useState } from "react";
 
-import banner1 from "../assets/7413395.jpg";
+import banner1 from "../assets/10412734.jpg";
 import banner2 from "../assets/7452709.jpg";
-import banner3 from "../assets/10412734.jpg";
+import banner3 from "../assets/7413395.jpg";
 import "./Banner.scss";
 
 const Banner = () => {
@@ -42,9 +42,27 @@ const Banner = () => {
           </div>
         </div>
         <div className="Buttons">
-          <button className="gotodif" onClick={onClick0}></button>
-          <button className="gotodif" onClick={onClick1}></button>
-          <button className="gotodif" onClick={onClick2}></button>
+          <button
+            className="gotodif"
+            onClick={onClick0}
+            style={{
+              backgroundColor: select === 0 ? "#bdbdbd" : "#585858",
+            }}
+          ></button>
+          <button
+            className="gotodif"
+            onClick={onClick1}
+            style={{
+              backgroundColor: select === 1 ? "#bdbdbd" : "#585858",
+            }}
+          ></button>
+          <button
+            className="gotodif"
+            onClick={onClick2}
+            style={{
+              backgroundColor: select === 2 ? "#bdbdbd" : "#585858",
+            }}
+          ></button>
         </div>
       </div>
     </div>

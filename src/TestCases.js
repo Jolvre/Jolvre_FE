@@ -144,6 +144,26 @@ const Faqs = [
   },
 ];
 
+const Posts = [
+  {
+    postId: 0,
+    title: "유화 레진 코팅 어떻게 하시나요?",
+    content:
+      "작품에 유화 물감을 사용하려하는데, 나중에 벗겨질까봐 레진 코팅하려 하거든요.",
+    userName: "aaa",
+    createdDate: "2024-05-06T13:14:32.658Z",
+    last_modified_date: "2024-05-06T13:14:32.658Z",
+  },
+  {
+    postId: 1,
+    title: "이 작품에 어울릴 색감 찾아주세요",
+    content: "가을에 잔잔한 호숫가를 그렸어요.",
+    userName: "bbb",
+    createdDate: "2024-05-06T13:14:32.658Z",
+    last_modified_date: "2024-05-06T13:14:32.658Z",
+  },
+];
+
 const Notices = [
   {
     id: 1,
@@ -157,4 +177,12 @@ const Notices = [
   },
 ];
 
-export { ArtWorks, TestDiaries, GroupExhibitions, Artists, Faqs, Notices };
+export {
+  Posts,
+  ArtWorks,
+  TestDiaries,
+  GroupExhibitions,
+  Artists,
+  Faqs,
+  Notices,
+};

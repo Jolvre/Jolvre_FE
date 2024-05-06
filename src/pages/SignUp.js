@@ -65,7 +65,7 @@ const SignUp = () => {
         if (response.accessToken) {
           sessionStorage.setItem("accessToken", response.accessToken);
           sessionStorage.setItem("refreshToken", response.refreshToken);
-          sessionStorage.setItem("nickname", inputNickName);
+          sessionStorage.setItem("myNickName", inputNickName);
           document.location.href = "/login";
         } else {
           alert("다시 로그인해주세요.");

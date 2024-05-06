@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./PerBulletin.scss";
+import axios from "axios";
 
-const UploadCommunity = () => {
+const UpdateCommunity = () => {
+  const location = useLocation();
+
+  const postId = location.state.postId; // 클릭한 글 id
+
   const writer = "나"; //sessionStorage.getItem("myNickName");
   const date = new Date().toISOString();
   const [inputTitle, setInputTitle] = useState("");
@@ -15,30 +20,58 @@ const UploadCommunity = () => {
     setInputContent(e.target.value);
   };
 
-  function onClickUpload(e) {
-    fetch("/api/v1/post/upload", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+  const useInterval = (callback, delay) => {
+    const savedCallback = useRef(null);
+
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+      const executeCallback = () => {
+        savedCallback.current();
+      };
+
+      const timerId = setInterval(executeCallback, delay);
+
+      return () => clearInterval(timerId);
+    }, []);
+  };
+
+  useInterval(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/v1/post/${postId}`);
+        setInputTitle(response.title);
+        setInputContent(response.content);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, 500);
+
+  function onClickUpdate(e) {
+    axios
+      .patch(`/api/v1/post/${postId}`, {
         title: inputTitle,
         content: inputContent,
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        document.location.href = "/community";
+      })
+      .then((res) => {
+        // 작업 완료 되면 페이지 이동(새로고침)
+        document.location.href = `/community/${postId}`;
+        alert("게시글이 수정되었습니다.");
       })
       .catch((error) => {
         console.log(error.response);
       });
     e.preventDefault();
   }
+
   return (
     <div className="PerDiary">
       <div className="PerBulletin">
-        <form onSubmit={onClickUpload}>
+        <form onSubmit={onClickUpdate}>
           <div className="Title">
             <input
               className="WriteRealTitle"
@@ -55,13 +88,12 @@ const UploadCommunity = () => {
           <textarea
             className="WriteContent"
             value={inputContent}
-            placeholder="글을 입력해주세요."
             onChange={saveInputContent}
           ></textarea>
           <div className="Line"></div>
           <div className="Foot">
             <button className="submit" type="submit">
-              등록
+              수정
             </button>
           </div>
         </form>
@@ -70,4 +102,4 @@ const UploadCommunity = () => {
   );
 };
 
-export default UploadCommunity;
+export default UpdateCommunity;

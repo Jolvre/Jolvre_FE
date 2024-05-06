@@ -41,10 +41,11 @@
     }
     .PrevMessages {
       height: 70vh;
-      background-color: #a9d0f5;
+      //background-color: #a9d0f5;
     }
     .SendMessage {
       margin-top: 20px;
+      padding-top: 10px;
       input {
         width: 65vw;
         height: 30px;
@@ -55,10 +56,11 @@
         padding-left: 10px;
         font-size: 1rem;
         margin: 0 10px 10px 10px;
+        float: left;
       }
       button {
         cursor: pointer;
-        //background-color: skyblue;
+        background-color: transparent;
         border: none;
         outline: none;
         padding: 0;

@@ -1,18 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CommunityItem from "../components/CommunityItem";
 import "./Bulletin.scss";
-import { TestDiaries } from "../TestCases";
+import { Posts } from "../TestCases";
 
 const Community = () => {
-  //const [diaries, setDiaries] = useState(null);
+  const posts = Posts;
 
-  //let filteredDiaries = [];
-  //for (let i = 0; i < TestDiaries.length; i++) {
-  //  filteredDiaries.push(TestDiaries[i]);
-  //}
-  //setDiaries(filteredDiaries);
-  const diaries = TestDiaries;
+  /*
+  const [posts, setPosts] = useState(null);
+
+  const useInterval = (callback, delay) => {
+    const savedCallback = useRef(null);
+
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+      const executeCallback = () => {
+        savedCallback.current();
+      };
+
+      const timerId = setInterval(executeCallback, delay);
+
+      return () => clearInterval(timerId);
+    }, []);
+
+  };
+
+  useInterval(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/v1/post");
+        let filteredPosts = [];
+        for (let i = 0; i < response.posts.length; i++) {
+          filteredPosts.push(response.posts[i]);
+        }
+        setPosts(filteredPosts);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, 500);
+
+  if (!posts) {
+    return null;
+  }
+  */
 
   return (
     <div className="Diary">
@@ -34,8 +71,8 @@ const Community = () => {
         </div>
         <div className="Line"></div>
         <div className="Content">
-          {diaries.map((diaries) => (
-            <CommunityItem diaries={diaries} key={diaries.id} />
+          {posts.map((posts) => (
+            <CommunityItem posts={posts} key={posts.postId} />
           ))}
         </div>
         <div className="Line"></div>

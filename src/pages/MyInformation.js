@@ -13,13 +13,13 @@ const MyInformation = () => {
   //}
   //setDiaries(filteredDiaries);
   const artists = Artists;
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-  const [rn, setRn] = useState("");
-  const [ad, setAd] = useState("");
-  const [univ, setUniv] = useState("");
-  const [major, setMajor] = useState("");
+  const [inputId, setInputId] = useState(""); //Email
+  const [inputPw, setInputPw] = useState("");
+  const [inputName, setInputName] = useState("");
+  const [inputNickName, setInputNickName] = useState("");
+  const [inputAge, setInputAge] = useState(20);
+  const [inputCity, setInputCity] = useState("");
+  const [inputSchool, setInputSchool] = useState("");
   const [isVerifed, setIsVerified] = useState(false);
 
   const useInterval = (callback, delay) => {
@@ -48,12 +48,14 @@ const MyInformation = () => {
           if (
             artists[i].user_id === "aaa_id" //sessionStorage.getItem("user_id")
           ) {
-            setName(artists[i].name);
-            setId(artists[i].user_id);
-            setPw(artists[i].password);
-            setUniv(artists[i].university);
-            setMajor(artists[i].major);
-            setIsVerified(artists[i].verified);
+            setInputName(artists[i].name);
+            setInputId(artists[i].user_id);
+            setInputPw(artists[i].password);
+            setInputNickName(artists[i].nickname);
+            setInputAge(artists[i].age);
+            setInputCity(artists[i].school);
+            setInputSchool(artists[i].school);
+            setIsVerified(artists[i].verified); //role?
             break;
           }
         } //나중에 session으로 맞는 내정보 불러오기
@@ -76,19 +78,19 @@ const MyInformation = () => {
         <div className="Content">
           <form>
             <p>이름</p>
-            <input disabled={true} type="text" value={name} />
-            <p>ID</p>
-            <input disabled={true} type="text" value={id} />
+            <input disabled={true} type="text" value={inputName} />
+            <p>닉네임</p>
+            <input disabled={true} type="text" value={inputNickName} />
+            <p>Email(ID)</p>
+            <input disabled={true} type="text" value={inputId} />
             <p>비밀번호</p>
-            <input disabled={true} type="text" value={pw} />
-            <p>전화번호</p>
-            <input disabled={true} type="text" value={"01022223333"} />
-            <p>생년월일</p>
-            <input disabled={true} type="text" value={"001108"} />
-            <p>대학교</p>
-            <input disabled={true} type="text" value={univ} />
-            <p>전공</p>
-            <input disabled={true} type="text" value={major} />
+            <input disabled={true} type="text" value={inputPw} />
+            <p>나이</p>
+            <input disabled={true} type="text" value={inputAge} />
+            <p>도시</p>
+            <input disabled={true} type="text" value={inputCity} />
+            <p>학교</p>
+            <input disabled={true} type="text" value={inputSchool} />
             <p>학생 인증 여부</p>
             {(() => {
               if (isVerifed === true) {
