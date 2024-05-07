@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./PerBulletin.scss";
+import { IoSend } from "react-icons/io5";
 import { Posts } from "../TestCases";
 
 const PerCommunity = () => {
@@ -10,6 +11,7 @@ const PerCommunity = () => {
 
   const postId = location.state.postId; // 클릭한 글 id
   const myNickName = "aaa"; //sessionStorage.getItem("myNickName");
+  const [inputComment, setInputComment] = useState("");
 
   const posts = Posts;
 
@@ -83,6 +85,27 @@ const PerCommunity = () => {
     e.preventDefault();
   }
 
+  function onClickCommentUpload(e) {
+    fetch(`/api/v1/comment/${postId}/upload`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: inputTitle,
+        content: inputContent,
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        document.location.href = "/community";
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    e.preventDefault();
+  }
+
   return (
     <div className="PerDiary">
       <div className="PerBulletin">
@@ -128,6 +151,19 @@ const PerCommunity = () => {
         </div>
         <div className="SubTitle">댓글</div>
         <div className="Line" style={{ backgroundColor: "#6e6e6e" }}></div>
+        <div className="SendComment">
+          <form onSubmit={onClickCommentUpload}>
+            <input
+              type="text"
+              value={inputComment}
+              onChange={(e) => setInputComment(e.target.value)}
+              placeholder="댓글을 입력하세요."
+            />
+            <button type="submit">
+              <IoSend size={30} />
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

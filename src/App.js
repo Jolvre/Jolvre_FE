@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Layout_Mypage from "./Layout_Mypage";
 import MyInformation from "./pages/MyInformation";
+import UpdateMyInformation from "./pages/UpdateMyInformation";
 import MyProject from "./pages/MyProject";
 import UploadProject from "./pages/UploadProject";
 import UpdateCommunity from "./pages/UpdateCommunity";
@@ -50,6 +51,10 @@ const App = () => {
       </Route>
       <Route element={<Layout_Mypage />}>
         <Route path="/mypage/myinformation" element={<MyInformation />} />
+        <Route
+          path="/mypage/myinformation/update"
+          element={<UpdateMyInformation />}
+        />
         <Route path="/mypage/myproject" element={<MyProject />} />
         <Route path="/mypage/myproject/upload" element={<UploadProject />} />
         <Route path="/mypage/myinvitation" element={<MyInvitation />} />

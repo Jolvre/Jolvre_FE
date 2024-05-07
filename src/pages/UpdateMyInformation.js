@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./MyInformation.scss";
 import { Artists } from "../TestCases";
+import axios from "axios";
 
-const MyInformation = () => {
+const UpdateMyInformation = () => {
   //const [diaries, setDiaries] = useState(null);
 
   //let filteredDiaries = [];
@@ -20,6 +21,19 @@ const MyInformation = () => {
   const [inputCity, setInputCity] = useState("");
   const [inputSchool, setInputSchool] = useState("");
   const [isVerifed, setIsVerified] = useState(false);
+
+  const saveInputName = (e) => {
+    setInputName(e.target.value);
+  };
+  const saveInputNickName = (e) => {
+    setInputNickName(e.target.value);
+  };
+  const saveInputAge = (e) => {
+    setInputAge(e.target.value);
+  };
+  const saveInputCity = (e) => {
+    setInputCity(e.target.value);
+  };
 
   const useInterval = (callback, delay) => {
     const savedCallback = useRef(null);
@@ -65,36 +79,23 @@ const MyInformation = () => {
     fetchData();
   }, 500);
 
-  function onClickVerify(e) {
-    if (
-      window.confirm(
-        inputSchool + "의 메일인 " + inputId + "로 학교 인증을 하시겠습니까?"
-      )
-    ) {
-      fetch("/api/v1/auth/student/verification", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          key: "?",
-          email: inputId,
-          univName: inputSchool,
-          code: "?",
-        }),
+  function onClickUpdate(e) {
+    axios
+      .patch(`/api/v1/user/${inputId}`, {
+        name: inputName,
+        nickname: inputNickName,
+        age: inputAge,
+        city: inputCity,
       })
-        .then((response) => response.json())
-        .then((response) => {
-          document.location.href = "/mypage/myinformation";
-          alert("학교 인증에 성공했습니다.");
-        })
-        .catch((error) => {
-          alert("학교 인증에 실패했습니다. 다시 시도해주세요.");
-          console.log(error.response);
-        });
-    } else {
-      e.preventDefault();
-    }
+      .then((res) => {
+        // 작업 완료 되면 페이지 이동(새로고침)
+        document.location.href = "/mypage/myinformation";
+        alert("정보가 수정되었습니다.");
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    e.preventDefault();
   }
 
   return (
@@ -107,37 +108,26 @@ const MyInformation = () => {
         </div>
         <div className="Line"></div>
         <div className="Content">
-          <form>
+          <form onSubmit={onClickUpdate}>
             <p>이름</p>
-            <input disabled={true} type="text" value={inputName} />
+            <input type="text" value={inputName} onChange={saveInputName} />
             <p>닉네임</p>
-            <input disabled={true} type="text" value={inputNickName} />
+            <input
+              type="text"
+              value={inputNickName}
+              onChange={saveInputNickName}
+            />
             <p>Email (ID)</p>
             <input disabled={true} type="text" value={inputId} />
             <p>비밀번호</p>
             <input disabled={true} type="text" value={inputPw} />
             <p>나이</p>
-            <input disabled={true} type="text" value={inputAge} />
+            <input type="text" value={inputAge} onChange={saveInputAge} />
             <p>도시</p>
-            <input disabled={true} type="text" value={inputCity} />
+            <input type="text" value={inputCity} onChange={saveInputCity} />
             <p>학교</p>
             <input disabled={true} type="text" value={inputSchool} />
-            <p>학생 인증 여부</p>
-            {(() => {
-              if (isVerifed === true) {
-                return <div className="verified">예</div>;
-              } else {
-                return (
-                  <div className="nonverified">
-                    아니오
-                    <button className="gotoverify" onClick={onClickVerify}>
-                      인증하기
-                    </button>
-                  </div>
-                );
-              }
-            })()}
-            <Link to="/mypage/myinformation/update">
+            <Link to="/mypage_ud">
               <button className="submit">수정</button>
             </Link>
           </form>
@@ -147,4 +137,4 @@ const MyInformation = () => {
   );
 };
 
-export default MyInformation;
+export default UpdateMyInformation;

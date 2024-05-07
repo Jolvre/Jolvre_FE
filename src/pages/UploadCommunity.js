@@ -35,6 +35,7 @@ const UploadCommunity = () => {
       });
     e.preventDefault();
   }
+
   return (
     <div className="PerDiary">
       <div className="PerBulletin">

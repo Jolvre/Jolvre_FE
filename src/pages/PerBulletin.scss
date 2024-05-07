@@ -24,6 +24,31 @@
     font-size: 0.9rem;
   }
 
+  .SendComment {
+    margin-top: 20px;
+    padding-top: 10px;
+    input {
+      width: 72vw;
+      height: 30px;
+      background-color: #d8d8d8;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      padding-left: 10px;
+      font-size: 1rem;
+      margin: 0 10px 10px 0;
+      float: left;
+    }
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
   .Title {
     display: flex;
     flex-direction: row;

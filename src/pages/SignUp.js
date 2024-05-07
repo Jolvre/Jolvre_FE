@@ -11,6 +11,8 @@ const SignUp = () => {
   const [inputAge, setInputAge] = useState(20);
   const [inputCity, setInputCity] = useState("");
   const [inputSchool, setInputSchool] = useState("");
+  const [isDupEmail, setIsDupEmail] = useState(true);
+  const [isDupNick, setIsDupNick] = useState(true);
 
   const saveInputId = (e) => {
     setInputId(e.target.value);
@@ -34,47 +36,81 @@ const SignUp = () => {
     setInputSchool(e.target.value);
   };
 
-  function onClickJoin(e) {
-    let temp = 0;
-    /*
-    for (let i = 0; i < txs.length; i++) {
-      if (inputId === txs[i]) {
-        temp = 1;
-        alert("이미 사용 중인 아이디입니다.");
-        break;
-      }
-    }
-    */
-    fetch("/api/v1/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: inputId,
-        name: inputName,
-        password: inputPw,
-        nickname: inputNickName,
-        age: +inputAge,
-        city: inputCity,
-        school: inputSchool,
-      }),
+  function onClickDupEmail(e) {
+    fetch(`/api/v1/signUp/check/email/${inputId}`, {
+      method: "GET",
     })
       .then((response) => response.json())
       .then((response) => {
-        if (response.accessToken) {
-          sessionStorage.setItem("accessToken", response.accessToken);
-          sessionStorage.setItem("refreshToken", response.refreshToken);
-          sessionStorage.setItem("myNickName", inputNickName);
-          document.location.href = "/login";
+        if (response.duplicate) {
+          alert("중복인 닉네임입니다.");
         } else {
-          alert("다시 로그인해주세요.");
+          setIsDupEmail(false);
+          alert("사용 가능한 닉네임입니다.");
         }
       })
       .catch((error) => {
         console.log(error.response);
       });
     e.preventDefault();
+  }
+
+  function onClickDupNick(e) {
+    fetch(`/api/v1/signUp/check/nickname/${inputNickName}`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.duplicate) {
+          alert("중복인 닉네임입니다.");
+        } else {
+          setIsDupNick(false);
+          alert("사용 가능한 닉네임입니다.");
+        }
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    e.preventDefault();
+  }
+
+  function onClickJoin(e) {
+    if (isDupEmail === false && isDupNick === false) {
+      fetch("/api/v1/signUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: inputId,
+          name: inputName,
+          password: inputPw,
+          nickname: inputNickName,
+          age: +inputAge,
+          city: inputCity,
+          school: inputSchool,
+        }),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.accessToken) {
+            sessionStorage.setItem("accessToken", response.accessToken);
+            sessionStorage.setItem("refreshToken", response.refreshToken);
+            sessionStorage.setItem("myNickName", inputNickName);
+            document.location.href = "/login";
+          } else {
+            alert("다시 로그인해주세요.");
+          }
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+      e.preventDefault();
+    } else if (isDupEmail) {
+      alert("이메일 중복 확인을 해주세요.");
+    } else if (isDupNick) {
+      alert("닉네임 중복 확인을 해주세요.");
+    }
   }
 
   return (
@@ -89,7 +125,26 @@ const SignUp = () => {
         <div className="Content">
           <form onSubmit={onClickJoin}>
             <p>Email</p>
-            <input id="id" type="text" value={inputId} onChange={saveInputId} />
+            <div className="NeedVerify">
+              <input
+                id="id"
+                type="text"
+                value={inputId}
+                onChange={saveInputId}
+              />
+              <button className="gotoverify" onClick={onClickDupEmail}>
+                중복 확인
+              </button>
+              {(() => {
+                if (isDupEmail === false) {
+                  return (
+                    <div className="FinishVerify">
+                      중복 확인이 완료되었습니다.
+                    </div>
+                  );
+                }
+              })()}
+            </div>
             <p>비밀번호</p>
             <input
               id="password"
@@ -105,12 +160,26 @@ const SignUp = () => {
               onChange={saveInputName}
             />
             <p>닉네임</p>
-            <input
-              id="phonenumber"
-              type="text"
-              value={inputNickName}
-              onChange={saveInputNickName}
-            />
+            <div className="NeedVerify">
+              <input
+                id="phonenumber"
+                type="text"
+                value={inputNickName}
+                onChange={saveInputNickName}
+              />
+              <button className="gotoverify" onClick={onClickDupNick}>
+                중복 확인
+              </button>
+              {(() => {
+                if (isDupNick === false) {
+                  return (
+                    <div className="FinishVerify">
+                      중복 확인이 완료되었습니다.
+                    </div>
+                  );
+                }
+              })()}
+            </div>
             <p>나이</p>
             <input
               id="phonenumber"
