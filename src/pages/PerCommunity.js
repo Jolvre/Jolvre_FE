@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./PerBulletin.scss";
+import CommentItem from "../components/CommentItem";
 import { IoSend } from "react-icons/io5";
-import { Posts } from "../TestCases";
+import { Posts, Comments } from "../TestCases";
 
 const PerCommunity = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const PerCommunity = () => {
   const [inputComment, setInputComment] = useState("");
 
   const posts = Posts;
+  const comments = Comments;
 
   const inputTitle = posts[0].title;
   const inputContent = posts[0].content;
@@ -26,6 +28,7 @@ const PerCommunity = () => {
   const [inputUserName, setInputUserName] = useState("");
   const [inputCreatedDate, setInputCreatedDate] = useState("");
   const [inputLastModifiedDate, setInputastModifiedDate] = useState("");
+  const [comments, setComments] = useState(null);
 
   const useInterval = (callback, delay) => {
     const savedCallback = useRef(null);
@@ -60,7 +63,45 @@ const PerCommunity = () => {
     };
     fetchData();
   }, 500);
-  */
+
+  const useInterval = (callback, delay) => {
+    const savedCallback = useRef(null);
+
+    useEffect(() => {
+      savedCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+      const executeCallback = () => {
+        savedCallback.current();
+      };
+
+      const timerId = setInterval(executeCallback, delay);
+
+      return () => clearInterval(timerId);
+    }, []);
+  };
+
+  useInterval(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/v1/comment/${postId}`);
+        let filteredComments = [];
+        for (let i = 0; i < response.comments.length; i++) {
+          filteredComments.push(response.comments[i]);
+        }
+        setComments(filteredComments);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, 500);
+
+  if (!comments) {
+    return null;
+  }
+*/
 
   const onClick = () => {
     navigate(-1);
@@ -112,7 +153,10 @@ const PerCommunity = () => {
         <div className="Title">
           <div className="RealTitle">{inputTitle}</div>
           <div className="Date">
-            작성자: {inputUserName} &nbsp; &nbsp;{inputLastModifiedDate}
+            작성자: {inputUserName} &nbsp; &nbsp;
+            {inputLastModifiedDate.substring(0, 10) +
+              " " +
+              inputLastModifiedDate.substring(11, 16)}
           </div>
         </div>
         <div className="Line"></div>
@@ -149,8 +193,13 @@ const PerCommunity = () => {
             목록
           </button>
         </div>
-        <div className="SubTitle">댓글</div>
+        <div className="SubTitle">댓글 {comments.length}</div>
         <div className="Line" style={{ backgroundColor: "#6e6e6e" }}></div>
+        <div className="CommentContent">
+          {comments.map((comments) => (
+            <CommentItem comments={comments} key={comments.commentId} />
+          ))}
+        </div>
         <div className="SendComment">
           <form onSubmit={onClickCommentUpload}>
             <input

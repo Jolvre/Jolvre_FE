@@ -164,6 +164,21 @@ const Posts = [
   },
 ];
 
+const Comments = [
+  {
+    commentId: 0,
+    content: "안녕하세요. 이건 어떨까요?",
+    userName: "ccc",
+    createdDate: "2024-05-06T13:14:32.658Z",
+  },
+  {
+    commentId: 1,
+    content: "하이",
+    userName: "ddd",
+    createdDate: "2024-05-06T13:14:32.658Z",
+  },
+];
+
 const Notices = [
   {
     id: 1,
@@ -179,6 +194,7 @@ const Notices = [
 
 export {
   Posts,
+  Comments,
   ArtWorks,
   TestDiaries,
   GroupExhibitions,

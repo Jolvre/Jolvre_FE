@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import bg from "../assets/20240427_002645.png";
+import advertisepic from "../assets/6864606.jpg";
 
 const Login = () => {
   // 지정된 ID를 가진 유저에 대한 요청
@@ -26,20 +27,20 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id: inputId,
+        email: inputId,
         password: inputPw,
       }),
     })
       .then((response) => response.json())
       .then((response) => {
-        if (response.success) {
-          sessionStorage.setItem("user_id", inputId);
-          document.location.href = "/movie_c";
-        } else {
-          alert("다시 로그인해주세요.");
-        }
+        localStorage.setItem("user_id", inputId);
+        localStorage.setItem("accessToken", response.accessToken);
+        localStorage.setItem("refreshToken", response.refreshToken);
+        document.location.href = "/";
       })
-      .catch(() => {});
+      .catch(() => {
+        alert("다시 로그인해주세요.");
+      });
     e.preventDefault();
   }
 
@@ -79,7 +80,7 @@ const Login = () => {
         </div>
       </div>
       <div className="Advertise">
-        <div className="Picture">광고</div>
+        <img src={advertisepic} />
       </div>
     </div>
   );

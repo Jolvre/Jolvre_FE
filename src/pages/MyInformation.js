@@ -77,10 +77,7 @@ const MyInformation = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          key: "?",
           email: inputId,
-          univName: inputSchool,
-          code: "?",
         }),
       })
         .then((response) => response.json())

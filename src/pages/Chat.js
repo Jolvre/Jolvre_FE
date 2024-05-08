@@ -6,7 +6,7 @@ import { IoSend } from "react-icons/io5";
 
 import "./Chat.scss";
 
-const SOCKET_SERVER_URL = "http://your-socket-server-url";
+const SOCKET_SERVER_URL = "ws://localhost:8080/ws/chat";
 // url은 ws://localhost:8080/ws/chat이 될 예정
 
 const Chat = () => {
