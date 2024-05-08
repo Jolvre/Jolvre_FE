@@ -1,5 +1,5 @@
 // swiper 삭제하기
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import banner1 from "../assets/10412734.jpg";
 import banner2 from "../assets/7452709.jpg";
@@ -17,6 +17,27 @@ const Banner = () => {
   const onClick2 = () => {
     setSelect(2);
   };
+
+  const [intervalId, setIntervalId] = useState(null);
+
+  const autoMoveSlide = () => {
+    if (intervalId !== null) {
+      clearInterval(intervalId);
+    }
+
+    setIntervalId(
+      setInterval(() => {
+        setSelect((select + 1) % 3);
+      }, 5000)
+    );
+  };
+
+  useEffect(() => {
+    autoMoveSlide();
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div>
       <div className="Container" style={{ overflow: "hidden" }}>

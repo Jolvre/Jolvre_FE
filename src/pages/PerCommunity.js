@@ -195,11 +195,6 @@ const PerCommunity = () => {
         </div>
         <div className="SubTitle">댓글 {comments.length}</div>
         <div className="Line" style={{ backgroundColor: "#6e6e6e" }}></div>
-        <div className="CommentContent">
-          {comments.map((comments) => (
-            <CommentItem comments={comments} key={comments.commentId} />
-          ))}
-        </div>
         <div className="SendComment">
           <form onSubmit={onClickCommentUpload}>
             <input
@@ -212,6 +207,12 @@ const PerCommunity = () => {
               <IoSend size={30} />
             </button>
           </form>
+        </div>
+        <div className="Line" style={{ backgroundColor: "#6e6e6e" }}></div>
+        <div className="CommentContent">
+          {comments.map((comments) => (
+            <CommentItem comments={comments} key={comments.commentId} />
+          ))}
         </div>
       </div>
     </div>

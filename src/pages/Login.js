@@ -80,7 +80,13 @@ const Login = () => {
         </div>
       </div>
       <div className="Advertise">
-        <img src={advertisepic} />
+        <a
+          href="https://www.coupang.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={advertisepic} />
+        </a>
       </div>
     </div>
   );

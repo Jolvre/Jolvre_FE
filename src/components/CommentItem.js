@@ -9,10 +9,12 @@ const CommentItem = ({ comments }) => {
   const createdDate = comments.createdDate;
 
   return (
-    <div className="BulletinItem" style={{ zIndex: 50 }}>
-      <div className="info4">{content}</div>
-      <div className="info5">{createdDate}</div>
-      <div className="info3">{userName}</div>
+    <div className="CommentItem" style={{ zIndex: 50 }}>
+      <div className="info1">{userName}</div>
+      <div className="info2">{content}</div>
+      <div className="info3">
+        {createdDate.substring(0, 10) + " " + createdDate.substring(11, 16)}
+      </div>
     </div>
   );
 };
