@@ -40,8 +40,60 @@
       }
     }
     .PrevMessages {
-      height: 70vh;
+      height: 50vh;
       //background-color: #a9d0f5;
+      .otherChat{
+        display: flex;
+        justify-content: left;
+        margin-top: 10px;
+        margin-left: 20px;
+        text-align: right;
+        .otherImg > img{
+          border-radius: 30px;
+          width: 30px;
+          margin-right: 10px;
+        }
+        .otherChatBox{
+          display: inline-block;
+          position: relative;
+          background-color: #ea5936;
+          border-radius: 20px;
+          color: #fff;
+          padding: 7px 12px;
+          margin-bottom: 10px;
+          max-width: 230px;
+          .otherChatTime {
+            position: absolute;
+            left: -72px;
+            top: 15px;
+            color: #171717;
+          }
+        }
+      }
+      .myChat{
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        margin-top: 10px;
+        margin-right: 20px;
+        text-align: right;
+        .myChatBox{
+          display: inline-block;
+          position: relative;
+          background-color: #ea5936;
+          border-radius: 20px;
+          color: #fff;
+          padding: 7px 12px;
+          margin-bottom: 10px;
+          max-width: 230px;
+          .myChatTime {
+            position: absolute;
+            left: -72px;
+            top: 15px;
+            color: #171717;
+          }
+        }
+      }
     }
     .SendMessage {
       margin-top: 20px;
