@@ -12,6 +12,9 @@ const UpdateMyInformation = () => {
   //  filteredDiaries.push(TestDiaries[i]);
   //}
   //setDiaries(filteredDiaries);
+
+  const accessToken = localStorage.getItem("accessToken");
+
   const artists = Artists;
   const [inputId, setInputId] = useState(""); //Email
   const [inputPw, setInputPw] = useState("");
@@ -81,12 +84,21 @@ const UpdateMyInformation = () => {
 
   function onClickUpdate(e) {
     axios
-      .patch(`/api/v1/user/${inputId}`, {
-        name: inputName,
-        nickname: inputNickName,
-        age: inputAge,
-        city: inputCity,
-      })
+      .patch(
+        `/api/v1/user/${inputId}`,
+        {
+          name: inputName,
+          nickname: inputNickName,
+          age: inputAge,
+          city: inputCity,
+          imageUrl: "?",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
       .then((res) => {
         // 작업 완료 되면 페이지 이동(새로고침)
         document.location.href = "/mypage/myinformation";

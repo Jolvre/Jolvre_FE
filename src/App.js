@@ -20,7 +20,7 @@ import Layout_Mypage from "./Layout_Mypage";
 import MyInformation from "./pages/MyInformation";
 import UpdateMyInformation from "./pages/UpdateMyInformation";
 import MyProject from "./pages/MyProject";
-import UploadProject from "./pages/UploadProject";
+import UploadMyProject from "./pages/UploadMyProject";
 import UpdateCommunity from "./pages/UpdateCommunity";
 import MyInvitation from "./pages/MyInvitation";
 import MyGroup from "./pages/MyGroup";
@@ -56,7 +56,7 @@ const App = () => {
           element={<UpdateMyInformation />}
         />
         <Route path="/mypage/myproject" element={<MyProject />} />
-        <Route path="/mypage/myproject/upload" element={<UploadProject />} />
+        <Route path="/mypage/myproject/upload" element={<UploadMyProject />} />
         <Route path="/mypage/myinvitation" element={<MyInvitation />} />
         <Route path="/mypage/mygroup" element={<MyGroup />} />
       </Route>

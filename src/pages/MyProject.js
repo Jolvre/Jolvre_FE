@@ -47,6 +47,7 @@ const MyProject = () => {
     };
     fetchData();
   }, 500);
+
   return (
     <div className="Diary">
       <div className="MyProject">

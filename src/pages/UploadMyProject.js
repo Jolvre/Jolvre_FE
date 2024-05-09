@@ -4,6 +4,8 @@ import "./MyProject.scss";
 import { Link } from "react-router-dom";
 
 const UploadProject = () => {
+  const accessToken = localStorage.getItem("accessToken");
+
   const [inputTitle, setInputTitle] = useState("");
   const [inputAuthorWord, setInputAuthorWord] = useState("");
   const [inputIntroduction, setInputIntroduction] = useState("");
@@ -56,7 +58,7 @@ const UploadProject = () => {
   function onClickUpload(e) {
     const formData = new FormData();
 
-    formData.append("file", file);
+    formData.append("images", file);
     formData.append("title", inputTitle);
     formData.append("authorWord", inputAuthorWord);
     formData.append("introduction", inputIntroduction);
@@ -68,6 +70,9 @@ const UploadProject = () => {
     fetch("/api/v1/exhibit", {
       method: "POST",
       body: formData,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     })
       .then((res) => {
         // 작업 완료 되면 페이지 이동(새로고침)
@@ -85,11 +90,12 @@ const UploadProject = () => {
       <div className="MyProject">
         <div className="Content">
           <form onSubmit={onClickUpload}>
-            <p>사진</p>
             <input
+              className="Thumbnail"
               type="file"
               id="profile-upload"
               accept="image/*"
+              placeholder="대표 사진"
               onChange={onChangeImg}
             />
             <div className="Line"></div>
@@ -119,6 +125,7 @@ const UploadProject = () => {
                   id="renumber"
                   type="text"
                   value={inputPrice}
+                  placeholder="(원)"
                   onChange={saveInputPrice}
                 />
               </div>
@@ -130,6 +137,7 @@ const UploadProject = () => {
                   id="phonenumber"
                   type="text"
                   value={inputSize}
+                  placeholder="가로(cm) X 세로(cm)"
                   onChange={saveInputSize}
                 />
               </div>
