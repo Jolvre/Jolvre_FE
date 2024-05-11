@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./MyInformation.scss";
 import { Artists } from "../TestCases";
+import axios from "axios";
 
 const MyInformation = () => {
   //const [diaries, setDiaries] = useState(null);
@@ -11,6 +12,8 @@ const MyInformation = () => {
   //  filteredDiaries.push(TestDiaries[i]);
   //}
   //setDiaries(filteredDiaries);
+  const accessToken = localStorage.getItem("accessToken");
+
   const artists = Artists;
   const [inputId, setInputId] = useState(""); //Email
   const [inputPw, setInputPw] = useState("");
@@ -42,22 +45,22 @@ const MyInformation = () => {
   useInterval(() => {
     const fetchData = async () => {
       try {
-        //const res1 = await axios.get("/customers");
-        for (let i = 0; i < 4; i++) {
-          if (
-            artists[i].user_id === "aaa_id" //sessionStorage.getItem("user_id")
-          ) {
-            setInputName(artists[i].name);
-            setInputId(artists[i].user_id);
-            setInputPw(artists[i].password);
-            setInputNickName(artists[i].nickname);
-            setInputAge(artists[i].age);
-            setInputCity(artists[i].school);
-            setInputSchool(artists[i].school);
-            setIsVerified(artists[i].verified); //role?
-            break;
-          }
-        } //나중에 session으로 맞는 내정보 불러오기
+        /*
+        const res1 = await axios.get("/api/v1/user", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        */
+        setInputName(artists[0].name);
+        setInputId(artists[0].user_id);
+        setInputPw(artists[0].password);
+        setInputNickName(artists[0].nickname);
+        setInputAge(artists[0].age);
+        setInputCity(artists[0].school);
+        setInputSchool(artists[0].school);
+        setIsVerified(artists[0].verified); //role?
+        //setImageUrl
       } catch (e) {
         console.log(e);
       }

@@ -29,3 +29,37 @@
     width: 15vw;
   }
 }
+
+.CommentItem {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  width: 72vw;
+  height: 90px;
+  padding: 0 2vw;
+  border-bottom: 1px solid #585858;
+  .info1 {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    margin-bottom: 7px;
+    .info1_1 {
+      width: 70vw;
+    }
+    .Back {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .info2 {
+    height: auto;
+    margin-bottom: 7px;
+  }
+  .info3 {
+    color: #585858;
+    font-size: 0.8rem;
+  }
+}

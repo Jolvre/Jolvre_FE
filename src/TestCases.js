@@ -1,15 +1,15 @@
 const ArtWorks = [
   {
-    id: 1,
-    name: "first",
-    artist: "aaa",
-    horizontal: 200,
-    vertical: 100,
-    how: "캔버스 위에 수채화",
-    howmuch: 50000,
-    about:
-      "칠하는 과정에 있어서도 단순히 붓을 칠하는 것을 넘어서 붓의 자루 혹은 갈대로 표면을 긁어냄으로서 독특한 화풍을 연출했다.",
-    artistsay: "밤하늘 속에서 빛나는 별의 풍경을 상상하며 감상해주세요.",
+    id: 0,
+    title: "별이 빛나는 밤",
+    authorWord: "밤하늘 속에서 빛나는 별의 풍경을 상상하며 감상해주세요.",
+    introduction: "string",
+    size: "500 X 300",
+    productionMethod: "캔버스 위에 수채화",
+    price: 50000,
+    forSale: true,
+    thumbnail: "string",
+    imagesUrl: ["string"],
   },
   {
     id: 2,

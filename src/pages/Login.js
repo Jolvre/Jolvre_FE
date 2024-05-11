@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   function onClickLogin(e) {
-    fetch("/login", {
+    fetch("/api/v1/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -80,7 +80,13 @@ const Login = () => {
         </div>
       </div>
       <div className="Advertise">
-        <img src={advertisepic} />
+        <a
+          href="https://www.coupang.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={advertisepic} />
+        </a>
       </div>
     </div>
   );
