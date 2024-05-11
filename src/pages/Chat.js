@@ -49,8 +49,8 @@ const Chat = () => {
   let [client, changeClient] = useState(null);
   const [chat, setChat] = useState(""); // 입력된 chat을 받을 변수
   const [chatList, setChatList] = useState([]); // 채팅 기록
-  
-  const [chatRoomId, setChatRoomId] = useState("");
+  const [isConnect, setConnect] = useState("");
+  const [chatRoomId, setChatRoomId] = useState(false);
 
   const msgBox = chatList.map((msg, index) => {
     // 상대방의 채팅 내역일 경우
@@ -122,6 +122,28 @@ const Chat = () => {
     client.deactivate();
   };
 
+  // 채팅 불러오기
+  const fetchChat = function(chatRoomId) {
+    console.log("fetchChat: "+ chatRoomId);
+     fetch("http://localhost:8080/chat/room/message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${accessToken}`
+      },
+      body: JSON.stringify({
+        roomId: chatRoomId,
+      }),
+      })
+      .then((response) => response.json())
+      .then((response) => {
+//        console.log(response);
+        for (let i=0; i<response.length; i++){
+            chatList.push(response[i])
+        }
+        console.log(chatList);
+      })
+  }
   // 콜백함수 => ChatList 저장하기
   const callback = function (message) {
     if (message.body) {
@@ -153,19 +175,31 @@ const Chat = () => {
 
   useEffect(() => {
     getRoomId(); // 렌더링 시 roomId를 반환하여 chatRoomId에 저장한 후 pub/chat/{chatRoomId} 에 메시지를 보내야 함
-    // 최초 렌더링 시 , 웹소켓에 연결
-    // 우리는 사용자가 방에 입장하자마자 연결 시켜주어야 하기 때문에,,
-
   }, []);
 
   useEffect(() => {
     // chatRoomId가 설정되었을 때 connect() 함수 호출
     if (chatRoomId) {
       connect();
+      setConnect(true);
+      console.log("useEffect | isConnect = true");
     }
-    return () => disConnect();
-  }, [chatRoomId]); 
+    return () => {
+        disConnect();
+        setConnect(false);
+        console.log("useEffect | isConnect = false")
+        };
+  }, [chatRoomId]);
 
+  useEffect(() => {
+  // isConnect가 1일 때 채팅 불러오기
+  if (isConnect == true) {
+    console.log("isConnect: "+isConnect);
+    console.log("chatRoomId" + chatRoomId);
+    fetchChat(chatRoomId);
+  }
+return () => console.log("isConnect: "+isConnect);
+}, [isConnect]);
 
   const onChangeChat = (e) => {
     setChat(e.target.value);

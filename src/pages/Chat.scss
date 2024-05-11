@@ -41,13 +41,13 @@
     }
     .PrevMessages {
       height: 50vh;
+      overflow-y: scroll;
       //background-color: #a9d0f5;
       .otherChat{
         display: flex;
         justify-content: left;
         margin-top: 10px;
         margin-left: 20px;
-        text-align: right;
         .otherImg > img{
           border-radius: 30px;
           width: 30px;
@@ -76,7 +76,6 @@
         justify-content: right;
         margin-top: 10px;
         margin-right: 20px;
-        text-align: right;
         .myChatBox{
           display: inline-block;
           position: relative;
@@ -100,7 +99,7 @@
       padding-top: 10px;
       input {
         width: 65vw;
-        height: 30px;
+        height: 90px;
         background-color: #d8d8d8;
         border: none;
         outline: none;
