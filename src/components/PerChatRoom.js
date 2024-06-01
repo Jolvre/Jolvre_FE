@@ -25,7 +25,7 @@ const PerChatRoom = ({ chatRoom }) => {
     // 소켓 연결
     try {
       const clientdata = new StompJs.Client({
-        brokerURL: "ws://13.208.178.255:8081/ws/chat",
+        brokerURL: "ws://localhost:8080/ws/chat",
         connectHeaders: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -82,7 +82,6 @@ const PerChatRoom = ({ chatRoom }) => {
 
   useEffect(() => {
     // chatRoomId가 설정되었을 때 connect() 함수 호출
-
     connect();
     setConnect(true);
     fetchChat(chatRoomId);
@@ -122,9 +121,7 @@ const PerChatRoom = ({ chatRoom }) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        for (let i = 0; i < response.length; i++) {
-          chatList.push(response[i]);
-        }
+        setChatList(response); // response를 chatList에 바로 설정
       });
   };
 
@@ -136,7 +133,7 @@ const PerChatRoom = ({ chatRoom }) => {
         <div key={index} className="otherChat">
           {/* 상대방 이미지 */}
           <div className="otherImg">
-            <img src={chatRoom.receiverProfileImg} alt="receiverProfileImg" />
+            <img src={msg.receiverProfileImg} alt="receiverProfileImg" />
           </div>
           {/* 상대방 채팅 내용 */}
           <div className="otherChatBox">
